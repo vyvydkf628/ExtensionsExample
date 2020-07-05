@@ -1,0 +1,38 @@
+{
+  "name": "__MSG_appName__",
+  "version": "1.0.0",
+  "description": "This is my very first cool extension",
+  "manifest_version": 2,
+  "default_locale": "ko",
+  "background": {
+    "scripts": ["background.js", "backgroundMessaging.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "content.js",
+        "contentMessaging.js",
+        "contentRequests.js"
+      ],
+      "exclude_matches": ["https://*.youtube.com/watch"],
+      "matches": ["https://*.youtube.com/*"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "bookmarks",
+    "storage",
+    "tabs",
+    "https://api.github.com/"
+  ],
+  "icons": {
+    "16": "youtube-dark.png",
+    "48": "youtube-dark.png",
+    "128": "youtube-dark.png"
+  },
+  "browser_action": {
+    "default_title": "created by jwa",
+    "default_popup": "popup.html"
+  }
+}
